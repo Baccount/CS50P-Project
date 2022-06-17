@@ -40,26 +40,23 @@ def add_note():
     clear_screen()
 
 
-# clear screen
 def clear_screen():
+    """Clear the screen"""
     print("\n" * 100)
 
 
-# change print color to red
-
-
 def red(string):
+    """returns string in red"""
     return "\033[91m" + string + "\033[0m"
 
 
-# sleep for 2 seconds
-
-
 def sleep(num=2):
+    """Sleep for num seconds"""
     time.sleep(num)
 
 
 def delete_database():
+    """Delete the entire database"""
     clear_screen()
     choice = input("ARE YOU SURE YOU WANT TO DELETE THE DATABASE? Y or N :")
     if choice == "Y".lower():
@@ -74,8 +71,9 @@ def delete_database():
         clear_screen()
 
 
-# Add random username and passwords to the database using for loop  (for testing)
 def random_passwords():
+    """Add random username and passwords to the database using for loop  (for testing)"""
+
     clear_screen()
     length = int(input("Enter number of passwords to add to database: "))
     conn = sqlite3.connect("passwords.db")
@@ -105,6 +103,7 @@ def random_passwords():
 
 
 def delete_password():
+    """Delete password from database based of username inputted"""
     clear_screen()
     conn = sqlite3.connect("passwords.db")
     c = conn.cursor()
@@ -121,10 +120,8 @@ def delete_password():
     clear_screen()
 
 
-# Display all passwords in alphabetical order by username
-
-
 def show_passwords():
+    """Display all passwords in alphabetical order by username"""
     clear_screen()
     conn = sqlite3.connect("passwords.db")
     c = conn.cursor()
@@ -142,8 +139,8 @@ def show_passwords():
     sleep()
 
 
-# create database
 def create_database():
+    """Creates a new database if it does not exist"""
     conn = sqlite3.connect("passwords.db")
     c = conn.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS passwords (username, password, notes)")
@@ -152,8 +149,8 @@ def create_database():
     conn.close()
 
 
-# Find all username and passwords that start with the inputted letter
 def find_password():
+    """# Find all username and passwords that start with the inputted letter"""
     clear_screen()
     conn = sqlite3.connect("passwords.db")
     c = conn.cursor()
@@ -174,8 +171,8 @@ def find_password():
     sleep()
 
 
-# link username to password
 def link_account():
+    """Link account to password"""
     clear_screen()
     conn = sqlite3.connect("passwords.db")
     c = conn.cursor()
@@ -192,8 +189,8 @@ def link_account():
     clear_screen()
 
 
-# create tests for password manager
 def test():
+    """Test function"""
     clear_screen()
     print(red("\nTesting...\n"))
     # test add password
